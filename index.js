@@ -4,7 +4,6 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 const cors = require("cors");
 
-
 require('dotenv').config()
 
 //Use JSON middleware and CORS
@@ -13,10 +12,11 @@ app.use(cors());
 
 //Link necessary routes
 const userRoute = require('./routes/userRoute');
+const emotionRoute = require('./routes/emotionRoute');
 
 //Use the routes for API calls
-app.use('/user', userRoute);
-
+app.use('/users', userRoute);
+app.use('/emotions', emotionRoute);
 
 
 app.listen(PORT, () => {
