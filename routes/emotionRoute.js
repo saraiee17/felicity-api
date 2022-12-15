@@ -28,10 +28,9 @@ router.post("/", (req, res) => {
 router.get("/:id", (req, res) => {
   knex("emotions")
     .select('*')
-    .where('user_id' === req.params.id)
+    .where({user_id:req.params.id})
     .then((emotions) => {
-      console.log(emotions)
-      res.status(201).send("Here you go");
+      res.status(201).send(emotions);
     })
     .catch((err) => {
       console.log(err);
