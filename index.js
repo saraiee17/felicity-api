@@ -12,10 +12,11 @@ app.use(cors());
 
 //Link necessary routes
 const userRoute = require('./routes/userRoute');
+const emotionRoute = require('./routes/emotionRoute');
 
 //Use the routes for API calls
-app.use('/user', userRoute);
-
+app.use('/users', userRoute);
+app.use('/emotions', emotionRoute);
 
 
 app.listen(PORT, () => {
